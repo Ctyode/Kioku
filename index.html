@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Kioku</title>
+  </head>
+  <body>
+    <header>
+    <div id="header-container">
+      <div class="logo"></div>
+      <div id="profile" v-bind:class="{ active: showAuth }" v-on:click="showAuth = !showAuth">
+        <div class="nickname">ctyode</div>
+        <img class="photo" src="images/photo.jpg">
+      </div>
+      <div v-show="showAuth" class="profile-popup">
+        <div class="input-container">
+          <p class="login">Sign in</p>
+          <div>
+            <input class="form" type="text" name="login" value="Login">
+          </div>
+          <div>
+            <input class="form" type="password" name="password" value="Password">
+          </div>
+          <div>
+            <input class="form-button" type="button" name="send" value="send">
+          </div>
+        </div>
+      </div>
+    </div>
+    </header>
+  </body>
+  <script type="text/javascript">
+    new Vue({
+      el: '#header-container',
+        data: {
+          showAuth: false
+        }
+    })
+  </script>
+</html>
