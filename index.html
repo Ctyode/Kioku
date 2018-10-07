@@ -7,13 +7,14 @@
     <title>Kioku</title>
   </head>
   <body>
-    <header>
+    <div class="header">
     <div id="header-container">
       <div class="logo"></div>
-      <div id="profile" v-bind:class="{ active: showAuth }" v-on:click="showAuth = !showAuth">
+     <div id="profile" v-bind:class="{ active: showAuth }" v-on:click="showAuth = !showAuth">
         <div class="nickname">ctyode</div>
         <img class="photo" src="images/photo.jpg">
       </div>
+
       <div v-show="showAuth" class="profile-popup">
         <div class="input-container">
           <p class="login">Sign in</p>
@@ -51,7 +52,72 @@
       </div>
 
     </div>
-    </header>
+  </div>
+
+
+    <section class="content">
+      <section class="elements">
+        <div class="menu">
+          <section class="menu-sections">
+            <div class="active site-section">
+              <div class="active menu-element">Dashboard</div>
+            </div>
+            <div class="site-section">
+              <div class="menu-element">Snippets</div>
+            </div>
+            <div class="site-section">
+              <div class="menu-element">Images</div>
+            </div>
+            <div class="site-section">
+              <div class="menu-element">Music</div>
+            </div>
+            <div class="site-section">
+              <div class="menu-element">Videos</div>
+            </div>
+            <div class="site-section">
+              <div class="menu-element">Starred</div>
+            </div>
+          </section>
+          </div>
+          <section class="main">
+            <section class="top">
+              <div class="search"></div>
+              <div class="posting"></div>
+            </section>
+            <section class="bottom">
+              <div class="post">
+                <div class="icon"></div>
+                <div class="title">Demo.java</div>
+                <div class="info">
+                  <div class="files">1 file</div>
+                  <div class="minutes">10 minutes ago</div>
+                </div>
+                <div class="code-background">
+                  <div class="text">
+                    <div class="numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
+                    <div class="code">public class Demo {<br>private static final String CONSTANT = "String";<br>private Object o;<br>/**<br>* Creates a new demo.<br>* @param o The object to demonstrate.<br>*/<br>public Demo(Object o) {<br>this.o = o;<br>String s = CONSTANT + "Other";<br>int i = 123;<br></div>
+                  </div>
+                  <div class="more">
+                    <div class="more-icon"></div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="post"></div>
+              <div class="post"></div>
+              <div class="post"></div>
+              <div class="post"></div>
+
+            </section>
+          </section>
+      </section>
+    </section>
+
+
+
+
   </body>
   <script type="text/javascript">
     new Vue({
