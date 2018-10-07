@@ -10,45 +10,58 @@
     <header>
     <div id="header-container">
       <div class="logo"></div>
-      <div id="profile" v-bind:class="{ active: showAuth }" v-on:click="showAuth = !showAuth">
+      <div id="profile" v-on:click="showAuth = !showAuth">
         <div class="nickname">ctyode</div>
         <img class="photo" src="images/photo.jpg">
       </div>
-      <div v-show="showAuth" class="profile-popup">
-        <div class="input-container">
-          <p class="login">Sign in</p>
-          <div>
-            <input class="form" type="text" name="login" value="Login">
+
+      <div v-show="!showAuth" class="profile-popup" :style="{ height: isHidden?'200px':'286px' }">
+        <div id="change-form">
+          <div class="login-container" v-show="isHidden">
+            <p class="login">Sign in</p>
+            <div>
+              <input class="form" type="text" name="login" placeholder="Login">
+            </div>
+            <div>
+              <input class="form" type="password" name="password" placeholder="Password">
+            </div>
+            <div>
+              <input class="form-button" type="button" name="send" value="login">
+            </div>
+            <button v-on:click="isHidden = !isHidden">Sign up</button>
           </div>
-          <div>
-            <input class="form" type="password" name="password" value="Password">
-          </div>
-          <div>
-            <input class="form-button" type="button" name="send" value="send">
+
+          <div class="register-container" v-show="!isHidden">
+            <p class="sign-up">Sign up</p>
+            <div>
+              <input class="form" type="email" name="email" placeholder="Email">
+            </div>
+            <div>
+              <input class="form" type="text" name="login" placeholder="Login">
+            </div>
+            <div>
+              <input class="form" type="password" name="password" placeholder="Password">
+            </div>
+            <div>
+              <input class="form" type="password" name="password" placeholder="Repeat password">
+            </div>
+            <div>
+              <input class="form-button" type="button" name="send" value="register">
+            </div>
+            <button v-on:click="isHidden = !isHidden">Sign in</button>
+        </div>
+        </div>
+
+        <div class="logout">
+          <div class="logout-popup">
+            <div>
+              <input class="logout-button" type="button" name="logout" value="logout">
+            </div>
           </div>
         </div>
       </div>
 
-      <div v-show="showAuth" class="register-popup">
-        <div class="input-container">
-          <p class="sign-up">Sign up</p>
-          <div>
-            <input class="form" type="email" name="email" value="Email">
-          </div>
-          <div>
-            <input class="form" type="text" name="login" value="Login">
-          </div>
-          <div>
-            <input class="form" type="password" name="password" value="Password">
-          </div>
-          <div>
-            <input class="form" type="password" name="password" value="Repeat password">
-          </div>
-          <div>
-            <input class="form-button" type="button" name="send" value="send">
-          </div>
-        </div>
-      </div>
+
 
     </div>
     </header>
@@ -57,7 +70,8 @@
     new Vue({
       el: '#header-container',
         data: {
-          showAuth: false
+          showAuth: true,
+          isHidden: true
         }
     })
   </script>
